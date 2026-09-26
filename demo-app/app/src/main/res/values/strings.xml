@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Release Demo</string>
+    <string name="login_title">Sign in</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button">Log In</string>
+    <string name="logout_button">Log Out</string>
+</resources>
