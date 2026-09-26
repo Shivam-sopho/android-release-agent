@@ -123,16 +123,29 @@ prompted.
 
 ## Sample run (real evidence, from before the LLM key was funded)
 
-**[Full report: `evidence/REPORT.md`](evidence/REPORT.md)** — a complete run of the tool
-pipeline (`diff_apks` → install old.apk → login → force-stop → install new.apk `-r` → relaunch)
-against the real emulator, with real screenshots and logcat. This particular run was driven by
-`scripts/run-manual-demo.mjs` (deterministic, calling the exact same MCP tools) rather than the
-live LLM agent loop, while a working model-provider key was still being sorted — labeled as such
-in the report itself. Verdict: `REGRESSION_DETECTED`, correctly.
+**[Full report: `evidence/REPORT.md`](evidence/REPORT.md)** — five journeys run against the real
+emulator (the same catalog from the original pitch: Login, Login→Kill→Reopen, Login→Logout→Login,
+a fresh-install sanity check on the new build, and Existing session→Upgrade→Reopen), each with a
+verdict, screenshots at every step, UI dumps, and logcat. A summary table, an impact-analysis
+section explaining *why* these journeys were picked from the diff, and a root-cause deep-dive for
+the one that fails. Driven by [`mcp-server/run-manual-demo.mjs`](mcp-server/run-manual-demo.mjs)
+(deterministic, calling the exact same MCP tools) rather than the live LLM agent loop, while a
+working model-provider key was still being sorted — labeled as such in the report itself.
 
-| Logged in (old.apk) | Bounced to login after upgrading to new.apk |
+| # | Journey | Result |
+|---|---|---|
+| J1 | Login | ✅ PASS |
+| J2 | Login → Kill app → Reopen | ✅ PASS |
+| J3 | Login → Logout → Login | ✅ PASS |
+| J4 | Fresh install of new.apk (sanity check) | ✅ PASS |
+| J5 | **Existing session → Upgrade → Reopen** | 🔴 **FAIL** |
+
+Precision, not a blanket failure: 4 of 5 journeys pass. Only the one journey the diff actually
+implicates — an existing session surviving an in-place upgrade — fails.
+
+| Logged in (old.apk, pre-upgrade) | Bounced to login after upgrading to new.apk |
 |---|---|
-| ![](evidence/A2_old_after_login.png) | ![](evidence/B_after_upgrade_relaunch.png) |
+| ![](evidence/J5_1_old_logged_in.png) | ![](evidence/J5_2_after_upgrade_relaunch.png) |
 
 ## Rebuilding the demo app yourself
 
