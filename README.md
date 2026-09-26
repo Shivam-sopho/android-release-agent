@@ -22,28 +22,24 @@ This agent starts from the two compiled APKs instead. The hard bet isn't "drive 
 ## Architecture
 
 ```mermaid
-flowchart TB
-    User(["You"])
-    UI["demo-ui control panel\n(Express + browser)"]
-    TF["TrueForge\nagent harness — sessions, turns,\nMCP wiring, approval gates"]
-    LLM[("Model provider\nAnthropic / OpenRouter")]
-    MCP["mcp-server\ndiff_apks, adb_*, write_report,\nrequest_release_approval"]
-    EMU["Android emulator\nrunning demo-app"]
+flowchart LR
+    You(["You"]) -->|"upload APKs"| UI["Control panel<br/>(demo-ui)"]
+    UI <-->|"session / turns"| TF["TrueForge<br/>(agent harness)"]
+    TF <-->|"reasoning"| LLM[("Model provider")]
+    TF <-->|"MCP"| MCP["mcp-server<br/>(tools)"]
+    MCP <-->|"adb"| EMU["Android<br/>emulator"]
+    TF -.->|"approval prompt"| UI
+    UI -.->|"Allow / Deny"| TF
 
-    User -- "upload old.apk + new.apk" --> UI
-    UI -- "create session / turn" --> TF
-    TF <-- "reasoning + tool-call decisions" --> LLM
-    TF -- "MCP: Streamable HTTP" --> MCP
-    MCP -- "adb" --> EMU
-    MCP -- "tool results" --> TF
-    TF -- "streamed events +\ntool.approval_required" --> UI
-    UI -- "Allow / Deny" --> TF
-    UI -- "live log + screenshots" --> User
-
-    style TF fill:#4f8cff,color:#fff
-    style MCP fill:#2ecc71,color:#06210f
-    style EMU fill:#232a33,color:#fff
+    style TF fill:#4f8cff,color:#fff,stroke:#2f6fe0
+    style MCP fill:#2ecc71,color:#06210f,stroke:#1f9c56
 ```
+
+*(dotted = the approval-gate round trip; solid = the main request/response flow)*
+
+Tool calls flow `TrueForge → mcp-server → adb → emulator` and results flow straight back;
+`mcp-server` exposes `diff_apks`, `adb_install`/`adb_force_stop`/`adb_launch`/`adb_tap`/
+`adb_dump_ui`/`adb_screenshot`/`adb_logcat_*`, `write_report`, and `request_release_approval`.
 
 The **approval gate** is not something we bolted on: `request_release_approval` is registered
 in TrueForge's `require_approval_for_tools`, so the harness itself pauses the turn and waits for
