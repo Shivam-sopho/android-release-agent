@@ -1,0 +1,1142 @@
+--------- beginning of main
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/LauncherActivityCachingLogic( 1056): loadIcon: Default app icon returned from PackageManager. component=ComponentInfo{com.example.releasedemo/com.example.releasedemo.SplashActivity}, user=UserHandle{0}
+W/LauncherActivityCachingLogic( 1056): java.lang.Exception
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.LauncherActivityCachingLogic.loadIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:59)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.BaseIconCache.addIconToDBAndMemCache(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:22)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.tasks.PackageUpdatedTask.execute(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:206)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel$rebindCallbacks$1.run(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:34)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.util.LooperExecutor.execute(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:16)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel.enqueueModelUpdateTask(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:20)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel$newModelCallbacks$1.accept(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:4)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.ModelLauncherCallbacks.onPackageAdded(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:39)
+W/LauncherActivityCachingLogic( 1056): 	at android.content.pm.LauncherApps$CallbackMessageHandler.handleMessage(LauncherApps.java:2326)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Handler.dispatchMessageImpl(Handler.java:142)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Handler.dispatchMessage(Handler.java:126)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Looper.loopOnce(Looper.java:295)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Looper.loop(Looper.java:398)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.HandlerThread.run(HandlerThread.java:140)
+W/LauncherActivityCachingLogic( 1056): loadIcon: Default app icon returned from PackageManager. component=ComponentInfo{com.example.releasedemo/com.example.releasedemo.SplashActivity}, user=UserHandle{0}
+W/LauncherActivityCachingLogic( 1056): java.lang.Exception
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.LauncherActivityCachingLogic.loadIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:59)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.BaseIconCache.loadFallbackIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:8)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.BaseIconCache.cacheLocked(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:102)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.IconCache.getTitleAndIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:245)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.IconCache.getTitleAndIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:240)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.AllAppsList.add(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:42)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.AllAppsList$$ExternalSyntheticLambda4.accept(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:14)
+W/LauncherActivityCachingLogic( 1056): 	at java.util.HashMap$Values.forEach(HashMap.java:1075)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.tasks.PackageUpdatedTask.execute(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:445)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel$rebindCallbacks$1.run(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:34)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.util.LooperExecutor.execute(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:16)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel.enqueueModelUpdateTask(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:20)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel$newModelCallbacks$1.accept(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:4)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.ModelLauncherCallbacks.onPackageAdded(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:39)
+W/LauncherActivityCachingLogic( 1056): 	at android.content.pm.LauncherApps$CallbackMessageHandler.handleMessage(LauncherApps.java:2326)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Handler.dispatchMessageImpl(Handler.java:142)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Handler.dispatchMessage(Handler.java:126)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Looper.loopOnce(Looper.java:295)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Looper.loop(Looper.java:398)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.HandlerThread.run(HandlerThread.java:140)
+W/ApplicationInfo(  674): Large ApplicationInfo parcel: size=19848 package=com.google.android.googlequicksearchbox splits=2 sharedLibs=3 resDirs=2 overlayPaths=2
+W/ParceledListSlice(  674): Element #27 is 21016 bytes.
+W/ApplicationInfo(  674): Large ApplicationInfo parcel: size=19848 package=com.google.android.googlequicksearchbox splits=2 sharedLibs=3 resDirs=2 overlayPaths=2
+W/ParceledListSlice(  674): Element #28 is 20644 bytes.
+W/ApplicationInfo(  674): Large ApplicationInfo parcel: size=19848 package=com.google.android.googlequicksearchbox splits=2 sharedLibs=3 resDirs=2 overlayPaths=2
+W/ParceledListSlice(  674): Element #29 is 21196 bytes.
+W/ApplicationInfo(  674): Large ApplicationInfo parcel: size=19848 package=com.google.android.googlequicksearchbox splits=2 sharedLibs=3 resDirs=2 overlayPaths=2
+W/ParceledListSlice(  674): Element #30 is 21408 bytes.
+W/ApplicationInfo(  674): Large ApplicationInfo parcel: size=19848 package=com.google.android.googlequicksearchbox splits=2 sharedLibs=3 resDirs=2 overlayPaths=2
+W/ParceledListSlice(  674): Element #31 is 20920 bytes.
+E/Finsky  ( 4321): [54] [Counters] attempted to use a non-positive increment for: 4752
+E/Finsky  ( 4321): [54] [Counters] attempted to use a non-positive increment for: 4752
+E/Finsky  ( 4321): [54] [Counters] attempted to use a non-positive increment for: 4753
+E/Finsky  ( 4321): [53] [Counters] attempted to use a non-positive increment for: 4753
+E/SatelliteController( 1051): isSatelliteEnabled: mIsSatelliteEnabled=null
+E/Finsky  ( 4321): [2] busw failed GRPC call!
+E/Finsky  ( 4321): java.lang.UnsupportedOperationException: Unauth not supported in gRPC BrowseService.
+E/Finsky  ( 4321): 	at adhk.c(PG:181)
+E/Finsky  ( 4321): 	at adhi.b(PG:309)
+E/Finsky  ( 4321): 	at adhi.a(PG:54)
+E/Finsky  ( 4321): 	at chov.av(PG:15)
+E/Finsky  ( 4321): 	at cgjl.i(PG:29)
+E/Finsky  ( 4321): 	at cgjl.j(PG:12)
+E/Finsky  ( 4321): 	at adhj.b(PG:37)
+E/Finsky  ( 4321): 	at adhj.nF(PG:23)
+E/Finsky  ( 4321): 	at twq.b(PG:25)
+E/Finsky  ( 4321): 	at chhx.x(PG:5)
+E/Finsky  ( 4321): 	at chpe.run(PG:109)
+E/Finsky  ( 4321): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+E/Finsky  ( 4321): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+E/Finsky  ( 4321): 	at ujl.run(PG:414)
+E/Finsky  ( 4321): 	at java.lang.Thread.run(Thread.java:1571)
+E/Finsky  ( 4321): [56] ItemStore: getItems RPC failed for item com.example.releasedemo
+E/Finsky  ( 4321): [56] ItemStore: getItems RPC failed for item com.example.releasedemo
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/LauncherActivityCachingLogic( 1056): loadIcon: Default app icon returned from PackageManager. component=ComponentInfo{com.example.releasedemo/com.example.releasedemo.SplashActivity}, user=UserHandle{0}
+W/LauncherActivityCachingLogic( 1056): java.lang.Exception
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.LauncherActivityCachingLogic.loadIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:59)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.BaseIconCache.addIconToDBAndMemCache(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:22)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.tasks.PackageUpdatedTask.execute(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:206)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel$rebindCallbacks$1.run(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:34)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.util.LooperExecutor.execute(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:16)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel.enqueueModelUpdateTask(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:20)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel$newModelCallbacks$1.accept(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:4)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.ModelLauncherCallbacks.onPackageChanged(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:12)
+W/LauncherActivityCachingLogic( 1056): 	at android.content.pm.LauncherApps$CallbackMessageHandler.handleMessage(LauncherApps.java:2332)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Handler.dispatchMessageImpl(Handler.java:142)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Handler.dispatchMessage(Handler.java:126)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Looper.loopOnce(Looper.java:295)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Looper.loop(Looper.java:398)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.HandlerThread.run(HandlerThread.java:140)
+W/LauncherActivityCachingLogic( 1056): loadIcon: Default app icon returned from PackageManager. component=ComponentInfo{com.example.releasedemo/com.example.releasedemo.SplashActivity}, user=UserHandle{0}
+W/LauncherActivityCachingLogic( 1056): java.lang.Exception
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.LauncherActivityCachingLogic.loadIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:59)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.BaseIconCache.loadFallbackIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:8)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.cache.BaseIconCache.cacheLocked(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:102)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.IconCache.getTitleAndIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:245)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.icons.IconCache.getTitleAndIcon(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:240)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.tasks.PackageUpdatedTask.execute(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:390)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel$rebindCallbacks$1.run(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:34)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.util.LooperExecutor.execute(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:16)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel.enqueueModelUpdateTask(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:20)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.LauncherModel$newModelCallbacks$1.accept(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:4)
+W/LauncherActivityCachingLogic( 1056): 	at com.android.launcher3.model.ModelLauncherCallbacks.onPackageChanged(go/retraceme 64ad04f494114c4e1bfc071cc6fb1f37a0439afc37d567b0460a01861ea99cae:12)
+W/LauncherActivityCachingLogic( 1056): 	at android.content.pm.LauncherApps$CallbackMessageHandler.handleMessage(LauncherApps.java:2332)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Handler.dispatchMessageImpl(Handler.java:142)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Handler.dispatchMessage(Handler.java:126)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Looper.loopOnce(Looper.java:295)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.Looper.loop(Looper.java:398)
+W/LauncherActivityCachingLogic( 1056): 	at android.os.HandlerThread.run(HandlerThread.java:140)
+W/System  (  674): A resource failed to call close. 
+W/System  (  674): A resource failed to call close. 
+W/JobInfo ( 4321): Job 'com.android.vending/com.google.android.finsky.scheduler.process.mainimpl.PhoneskyJobServiceMain#9946' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+W/JobInfo (  674): Job 'com.android.vending/com.google.android.finsky.scheduler.process.mainimpl.PhoneskyJobServiceMain#9946' has a deadline with no functional constraints. The deadline won't improve job execution latency. Consider removing the deadline.
+W/AppInstallOperation( 1254): FDL Migration::InstallIntentOperation by FDL Module [CONTEXT service_id=77 ]
+E/Dck     ( 1254): Could not get ProviderInfo when resolving the content provider authority. [CONTEXT service_id=289 ]
+W/GCM     ( 1254): Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 pkg=com.google.android.gms cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+W/NetworkScheduler( 1254): Unexpected forwarded intent: Intent { act=android.intent.action.PACKAGE_ADDED dat=package: flg=0x4000010 pkg=com.google.android.gms cmp=com.google.android.gms/.chimera.PersistentIntentOperationService (has extras) }
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/app_process(12762): Unexpected CPU variant for x86: x86_64.
+W/app_process(12762): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/Monkey  (12762): args: [-p, com.example.releasedemo, -c, android.intent.category.LAUNCHER, 1]
+--------- beginning of system
+W/ActivityManager(  674): Skipping manifest association check for null package. SourceUid: 10206, SourcePkg: null, TargetUid: 10206, TargetPkg: com.google.android.gms
+E/FeatureFlagsImplExport(12762): android.os.flagging.AconfigStorageReadException: ERROR_PACKAGE_NOT_FOUND: package android.xr cannot be found on the device
+E/EventHub(  674): Could not open directory /sys/devices/virtual/power_supply: No such file or directory
+E/EventHub(  674): Could not open directory /sys/devices/power_supply: No such file or directory
+E/EventHub(  674): Could not open directory /sys/power_supply: No such file or directory
+E/EventHub(  674): Could not open directory /sys/devices/virtual/leds: No such file or directory
+E/EventHub(  674): Could not open directory /sys/devices/leds: No such file or directory
+E/EventHub(  674): Could not open directory /sys/leds: No such file or directory
+W/Monkey  (12762):  arg: "-p"
+W/Monkey  (12762):  arg: "com.example.releasedemo"
+W/Monkey  (12762):  arg: "-c"
+W/Monkey  (12762):  arg: "android.intent.category.LAUNCHER"
+W/Monkey  (12762):  arg: "1"
+W/Monkey  (12762): data="com.example.releasedemo"
+W/Monkey  (12762): data="android.intent.category.LAUNCHER"
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/Bundle  ( 1254): Key identifier expected com.google.firebase.appindexing.internal.Thing[] but value was of a different type.  The default value <null> was returned.
+W/Bundle  ( 1254): Attempt to cast generated internal exception:
+W/Bundle  ( 1254): java.lang.ClassCastException: Cannot cast [Ljava.lang.String; to [Landroid.os.Parcelable;
+W/Bundle  ( 1254): 	at java.lang.Class.cast(Class.java:4184)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValueAt(BaseBundle.java:434)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValue(BaseBundle.java:396)
+W/Bundle  ( 1254): 	at android.os.Bundle.getParcelableArray(Bundle.java:1176)
+W/Bundle  ( 1254): 	at mhe.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):1)
+W/Bundle  ( 1254): 	at com.google.firebase.appindexing.internal.Thing.h(:com.google.android.gms@263436038@26.34.36 (260800-981326859):5)
+W/Bundle  ( 1254): 	at csbt.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):582)
+W/Bundle  ( 1254): 	at csbt.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):54)
+W/Bundle  ( 1254): 	at csbm.i(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at csad.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):19)
+W/Bundle  ( 1254): 	at csbo.f(:com.google.android.gms@263436038@26.34.36 (260800-981326859):26)
+W/Bundle  ( 1254): 	at csad.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):3)
+W/Bundle  ( 1254): 	at csak.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):10)
+W/Bundle  ( 1254): 	at csie.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):172)
+W/Bundle  ( 1254): 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+W/Bundle  ( 1254): 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+W/Bundle  ( 1254): 	at bpoj.d(:com.google.android.gms@263436038@26.34.36 (260800-981326859):50)
+W/Bundle  ( 1254): 	at bpoj.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):6)
+W/Bundle  ( 1254): 	at bpoj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):33)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+W/Bundle  ( 1254): 	at bpuj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at java.lang.Thread.run(Thread.java:1571)
+W/Bundle  ( 1254): Key name expected com.google.firebase.appindexing.internal.Thing[] but value was of a different type.  The default value <null> was returned.
+W/Bundle  ( 1254): Attempt to cast generated internal exception:
+W/Bundle  ( 1254): java.lang.ClassCastException: Cannot cast [Ljava.lang.String; to [Landroid.os.Parcelable;
+W/Bundle  ( 1254): 	at java.lang.Class.cast(Class.java:4184)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValueAt(BaseBundle.java:434)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValue(BaseBundle.java:396)
+W/Bundle  ( 1254): 	at android.os.Bundle.getParcelableArray(Bundle.java:1176)
+W/Bundle  ( 1254): 	at mhe.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):1)
+W/Bundle  ( 1254): 	at com.google.firebase.appindexing.internal.Thing.h(:com.google.android.gms@263436038@26.34.36 (260800-981326859):5)
+W/Bundle  ( 1254): 	at csbt.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):582)
+W/Bundle  ( 1254): 	at csbt.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):54)
+W/Bundle  ( 1254): 	at csbm.i(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at csad.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):19)
+W/Bundle  ( 1254): 	at csbo.f(:com.google.android.gms@263436038@26.34.36 (260800-981326859):26)
+W/Bundle  ( 1254): 	at csad.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):3)
+W/Bundle  ( 1254): 	at csak.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):10)
+W/Bundle  ( 1254): 	at csie.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):172)
+W/Bundle  ( 1254): 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+W/Bundle  ( 1254): 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+W/Bundle  ( 1254): 	at bpoj.d(:com.google.android.gms@263436038@26.34.36 (260800-981326859):50)
+W/Bundle  ( 1254): 	at bpoj.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):6)
+W/Bundle  ( 1254): 	at bpoj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):33)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+W/Bundle  ( 1254): 	at bpuj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at java.lang.Thread.run(Thread.java:1571)
+W/Bundle  ( 1254): Key dateModified expected com.google.firebase.appindexing.internal.Thing[] but value was of a different type.  The default value <null> was returned.
+W/Bundle  ( 1254): Attempt to cast generated internal exception:
+W/Bundle  ( 1254): java.lang.ClassCastException: Cannot cast [J to [Landroid.os.Parcelable;
+W/Bundle  ( 1254): 	at java.lang.Class.cast(Class.java:4184)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValueAt(BaseBundle.java:434)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValue(BaseBundle.java:396)
+W/Bundle  ( 1254): 	at android.os.Bundle.getParcelableArray(Bundle.java:1176)
+W/Bundle  ( 1254): 	at mhe.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):1)
+W/Bundle  ( 1254): 	at com.google.firebase.appindexing.internal.Thing.h(:com.google.android.gms@263436038@26.34.36 (260800-981326859):5)
+W/Bundle  ( 1254): 	at csbt.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):582)
+W/Bundle  ( 1254): 	at csbt.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):54)
+W/Bundle  ( 1254): 	at csbm.i(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at csad.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):19)
+W/Bundle  ( 1254): 	at csbo.f(:com.google.android.gms@263436038@26.34.36 (260800-981326859):26)
+W/Bundle  ( 1254): 	at csad.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):3)
+W/Bundle  ( 1254): 	at csak.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):10)
+W/Bundle  ( 1254): 	at csie.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):172)
+W/Bundle  ( 1254): 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+W/Bundle  ( 1254): 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+W/Bundle  ( 1254): 	at bpoj.d(:com.google.android.gms@263436038@26.34.36 (260800-981326859):50)
+W/Bundle  ( 1254): 	at bpoj.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):6)
+W/Bundle  ( 1254): 	at bpoj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):33)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+W/Bundle  ( 1254): 	at bpuj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at java.lang.Thread.run(Thread.java:1571)
+W/ActivityManager(  674): registerReceiverWithFeature: no app for null
+W/ActivityTaskManager(  674): callingPackage for (uid=2000, pid=12762) has no WPC
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/Bundle  ( 1254): Key identifier expected com.google.firebase.appindexing.internal.Thing[] but value was of a different type.  The default value <null> was returned.
+W/Bundle  ( 1254): Attempt to cast generated internal exception:
+W/Bundle  ( 1254): java.lang.ClassCastException: Cannot cast [Ljava.lang.String; to [Landroid.os.Parcelable;
+W/Bundle  ( 1254): 	at java.lang.Class.cast(Class.java:4184)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValueAt(BaseBundle.java:434)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValue(BaseBundle.java:396)
+W/Bundle  ( 1254): 	at android.os.Bundle.getParcelableArray(Bundle.java:1176)
+W/Bundle  ( 1254): 	at mhe.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):1)
+W/Bundle  ( 1254): 	at com.google.firebase.appindexing.internal.Thing.h(:com.google.android.gms@263436038@26.34.36 (260800-981326859):5)
+W/Bundle  ( 1254): 	at csbt.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):582)
+W/Bundle  ( 1254): 	at csbt.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):54)
+W/Bundle  ( 1254): 	at csbm.i(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at csad.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):19)
+W/Bundle  ( 1254): 	at csbo.f(:com.google.android.gms@263436038@26.34.36 (260800-981326859):26)
+W/Bundle  ( 1254): 	at csad.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):3)
+W/Bundle  ( 1254): 	at csak.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):10)
+W/Bundle  ( 1254): 	at csie.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):172)
+W/Bundle  ( 1254): 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+W/Bundle  ( 1254): 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+W/Bundle  ( 1254): 	at bpoj.d(:com.google.android.gms@263436038@26.34.36 (260800-981326859):50)
+W/Bundle  ( 1254): 	at bpoj.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):28)
+W/Bundle  ( 1254): 	at bpoj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):33)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+W/Bundle  ( 1254): 	at bpuj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at java.lang.Thread.run(Thread.java:1571)
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/Bundle  ( 1254): Key name expected com.google.firebase.appindexing.internal.Thing[] but value was of a different type.  The default value <null> was returned.
+W/Bundle  ( 1254): Attempt to cast generated internal exception:
+W/Bundle  ( 1254): java.lang.ClassCastException: Cannot cast [Ljava.lang.String; to [Landroid.os.Parcelable;
+W/Bundle  ( 1254): 	at java.lang.Class.cast(Class.java:4184)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValueAt(BaseBundle.java:434)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValue(BaseBundle.java:396)
+W/Bundle  ( 1254): 	at android.os.Bundle.getParcelableArray(Bundle.java:1176)
+W/Bundle  ( 1254): 	at mhe.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):1)
+W/Bundle  ( 1254): 	at com.google.firebase.appindexing.internal.Thing.h(:com.google.android.gms@263436038@26.34.36 (260800-981326859):5)
+W/Bundle  ( 1254): 	at csbt.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):582)
+W/Bundle  ( 1254): 	at csbt.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):54)
+W/Bundle  ( 1254): 	at csbm.i(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at csad.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):19)
+W/Bundle  ( 1254): 	at csbo.f(:com.google.android.gms@263436038@26.34.36 (260800-981326859):26)
+W/Bundle  ( 1254): 	at csad.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):3)
+W/Bundle  ( 1254): 	at csak.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):10)
+W/Bundle  ( 1254): 	at csie.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):172)
+W/Bundle  ( 1254): 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+W/Bundle  ( 1254): 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+W/Bundle  ( 1254): 	at bpoj.d(:com.google.android.gms@263436038@26.34.36 (260800-981326859):50)
+W/Bundle  ( 1254): 	at bpoj.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):28)
+W/Bundle  ( 1254): 	at bpoj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):33)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+W/Bundle  ( 1254): 	at bpuj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at java.lang.Thread.run(Thread.java:1571)
+W/Bundle  ( 1254): Key dateModified expected com.google.firebase.appindexing.internal.Thing[] but value was of a different type.  The default value <null> was returned.
+W/Bundle  ( 1254): Attempt to cast generated internal exception:
+W/Bundle  ( 1254): java.lang.ClassCastException: Cannot cast [J to [Landroid.os.Parcelable;
+W/Bundle  ( 1254): 	at java.lang.Class.cast(Class.java:4184)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValueAt(BaseBundle.java:434)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValue(BaseBundle.java:396)
+W/Bundle  ( 1254): 	at android.os.Bundle.getParcelableArray(Bundle.java:1176)
+W/Bundle  ( 1254): 	at mhe.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):1)
+W/Bundle  ( 1254): 	at com.google.firebase.appindexing.internal.Thing.h(:com.google.android.gms@263436038@26.34.36 (260800-981326859):5)
+W/Bundle  ( 1254): 	at csbt.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):582)
+W/Bundle  ( 1254): 	at csbt.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):54)
+W/Bundle  ( 1254): 	at csbm.i(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at csad.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):19)
+W/Bundle  ( 1254): 	at csbo.f(:com.google.android.gms@263436038@26.34.36 (260800-981326859):26)
+W/Bundle  ( 1254): 	at csad.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):3)
+W/Bundle  ( 1254): 	at csak.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):10)
+W/Bundle  ( 1254): 	at csie.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):172)
+W/Bundle  ( 1254): 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+W/Bundle  ( 1254): 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+W/Bundle  ( 1254): 	at bpoj.d(:com.google.android.gms@263436038@26.34.36 (260800-981326859):50)
+W/Bundle  ( 1254): 	at bpoj.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):28)
+W/Bundle  ( 1254): 	at bpoj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):33)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+W/Bundle  ( 1254): 	at bpuj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at java.lang.Thread.run(Thread.java:1571)
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+E/TransitionChain(  674): Mismatch between current collecting (TransitionRecord{4f295f9 id=37 type=OPEN flags=0x0 parallelCollectType=NONE recentsDisplayId=-1 c=[
+E/TransitionChain(  674):    ChangeInfo{c91e93e container=WindowedMagnification:0:31@93282306 flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{325639f container=ActivityRecord{125731169 u0 com.example.releasedemo/.SplashActivity t27} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{7400cec container=Task{97f1b3b #27 type=standard A=10233:com.example.releasedemo} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{4bd98b5 container=Display{#0 state=ON size=1080x2424 ROTATION_0} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{a3f5b4a container=DefaultTaskDisplayArea@203673010 flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{69abb container=AppZoomOut:2:14@210011430 flags=0x0}
+E/TransitionChain(  674): ]
+E/TransitionChain(  674): }) and chain (TransitionRecord{4f295f9 id=37 type=OPEN flags=0x0 parallelCollectType=NONE recentsDisplayId=-1 c=[
+E/TransitionChain(  674):    ChangeInfo{c91e93e container=WindowedMagnification:0:31@93282306 flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{325639f container=ActivityRecord{125731169 u0 com.example.releasedemo/.SplashActivity t27} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{7400cec container=Task{97f1b3b #27 type=standard A=10233:com.example.releasedemo} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{4bd98b5 container=Display{#0 state=ON size=1080x2424 ROTATION_0} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{a3f5b4a container=DefaultTaskDisplayArea@203673010 flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{69abb container=AppZoomOut:2:14@210011430 flags=0x0}
+E/TransitionChain(  674): ]
+E/TransitionChain(  674): })
+W/InputChannel-JNI(  674): Channel already disposed.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/SplitSelectStateCtor( 1056): Missing session instanceIds
+W/libbinder.IPCThreadState(  580): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  580): Sending oneway calls to frozen process.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/ple.releasedemo(12784): Unexpected CPU variant for x86: x86_64.
+W/ple.releasedemo(12784): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+W/Bundle  ( 1254): Key identifier expected com.google.firebase.appindexing.internal.Thing[] but value was of a different type.  The default value <null> was returned.
+W/Bundle  ( 1254): Attempt to cast generated internal exception:
+W/Bundle  ( 1254): java.lang.ClassCastException: Cannot cast [Ljava.lang.String; to [Landroid.os.Parcelable;
+W/Bundle  ( 1254): 	at java.lang.Class.cast(Class.java:4184)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValueAt(BaseBundle.java:434)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValue(BaseBundle.java:396)
+W/Bundle  ( 1254): 	at android.os.Bundle.getParcelableArray(Bundle.java:1176)
+W/Bundle  ( 1254): 	at mhe.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):1)
+W/Bundle  ( 1254): 	at com.google.firebase.appindexing.internal.Thing.h(:com.google.android.gms@263436038@26.34.36 (260800-981326859):5)
+W/Bundle  ( 1254): 	at csbt.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):582)
+W/Bundle  ( 1254): 	at csbt.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):54)
+W/Bundle  ( 1254): 	at csbm.i(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at csad.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):19)
+W/Bundle  ( 1254): 	at csbo.f(:com.google.android.gms@263436038@26.34.36 (260800-981326859):26)
+W/Bundle  ( 1254): 	at csad.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):3)
+W/Bundle  ( 1254): 	at csak.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):10)
+W/Bundle  ( 1254): 	at csie.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):172)
+W/Bundle  ( 1254): 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+W/Bundle  ( 1254): 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+W/Bundle  ( 1254): 	at bpoj.d(:com.google.android.gms@263436038@26.34.36 (260800-981326859):50)
+W/Bundle  ( 1254): 	at bpoj.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):6)
+W/Bundle  ( 1254): 	at bpoj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):33)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+W/Bundle  ( 1254): 	at bpuj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at java.lang.Thread.run(Thread.java:1571)
+W/Bundle  ( 1254): Key name expected com.google.firebase.appindexing.internal.Thing[] but value was of a different type.  The default value <null> was returned.
+W/Bundle  ( 1254): Attempt to cast generated internal exception:
+W/Bundle  ( 1254): java.lang.ClassCastException: Cannot cast [Ljava.lang.String; to [Landroid.os.Parcelable;
+W/Bundle  ( 1254): 	at java.lang.Class.cast(Class.java:4184)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValueAt(BaseBundle.java:434)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValue(BaseBundle.java:396)
+W/Bundle  ( 1254): 	at android.os.Bundle.getParcelableArray(Bundle.java:1176)
+W/Bundle  ( 1254): 	at mhe.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):1)
+W/Bundle  ( 1254): 	at com.google.firebase.appindexing.internal.Thing.h(:com.google.android.gms@263436038@26.34.36 (260800-981326859):5)
+W/Bundle  ( 1254): 	at csbt.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):582)
+W/Bundle  ( 1254): 	at csbt.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):54)
+W/Bundle  ( 1254): 	at csbm.i(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at csad.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):19)
+W/Bundle  ( 1254): 	at csbo.f(:com.google.android.gms@263436038@26.34.36 (260800-981326859):26)
+W/Bundle  ( 1254): 	at csad.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):3)
+W/Bundle  ( 1254): 	at csak.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):10)
+W/Bundle  ( 1254): 	at csie.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):172)
+W/Bundle  ( 1254): 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+W/Bundle  ( 1254): 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+W/Bundle  ( 1254): 	at bpoj.d(:com.google.android.gms@263436038@26.34.36 (260800-981326859):50)
+W/Bundle  ( 1254): 	at bpoj.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):6)
+W/Bundle  ( 1254): 	at bpoj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):33)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+W/Bundle  ( 1254): 	at bpuj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at java.lang.Thread.run(Thread.java:1571)
+W/Bundle  ( 1254): Key dateModified expected com.google.firebase.appindexing.internal.Thing[] but value was of a different type.  The default value <null> was returned.
+W/Bundle  ( 1254): Attempt to cast generated internal exception:
+W/Bundle  ( 1254): java.lang.ClassCastException: Cannot cast [J to [Landroid.os.Parcelable;
+W/Bundle  ( 1254): 	at java.lang.Class.cast(Class.java:4184)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValueAt(BaseBundle.java:434)
+W/Bundle  ( 1254): 	at android.os.BaseBundle.getValue(BaseBundle.java:396)
+W/Bundle  ( 1254): 	at android.os.Bundle.getParcelableArray(Bundle.java:1176)
+W/Bundle  ( 1254): 	at mhe.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):1)
+W/Bundle  ( 1254): 	at com.google.firebase.appindexing.internal.Thing.h(:com.google.android.gms@263436038@26.34.36 (260800-981326859):5)
+W/Bundle  ( 1254): 	at csbt.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):582)
+W/Bundle  ( 1254): 	at csbt.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):54)
+W/Bundle  ( 1254): 	at csbm.i(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at csad.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):19)
+W/Bundle  ( 1254): 	at csbo.f(:com.google.android.gms@263436038@26.34.36 (260800-981326859):26)
+W/Bundle  ( 1254): 	at csad.g(:com.google.android.gms@263436038@26.34.36 (260800-981326859):3)
+W/Bundle  ( 1254): 	at csak.a(:com.google.android.gms@263436038@26.34.36 (260800-981326859):10)
+W/Bundle  ( 1254): 	at csie.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):172)
+W/Bundle  ( 1254): 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:520)
+W/Bundle  ( 1254): 	at java.util.concurrent.FutureTask.run(FutureTask.java:328)
+W/Bundle  ( 1254): 	at bpoj.d(:com.google.android.gms@263436038@26.34.36 (260800-981326859):50)
+W/Bundle  ( 1254): 	at bpoj.c(:com.google.android.gms@263436038@26.34.36 (260800-981326859):6)
+W/Bundle  ( 1254): 	at bpoj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):33)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+W/Bundle  ( 1254): 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+W/Bundle  ( 1254): 	at bpuj.run(:com.google.android.gms@263436038@26.34.36 (260800-981326859):8)
+W/Bundle  ( 1254): 	at java.lang.Thread.run(Thread.java:1571)
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+E/TransitionChain(  674): Mismatch between current collecting (TransitionRecord{4f295f9 id=37 type=OPEN flags=0x0 parallelCollectType=NONE recentsDisplayId=-1 c=[
+E/TransitionChain(  674):    ChangeInfo{6ae8223 container=Task{151e78e #2 type=home I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{c91e93e container=WindowedMagnification:0:31@93282306 flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{325639f container=ActivityRecord{125731169 u0 com.example.releasedemo/.SplashActivity t27} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{e064320 container=WallpaperWindowToken{931e8b7 showWhenLocked=true} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{7400cec container=Task{97f1b3b #27 type=standard A=10233:com.example.releasedemo} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{bde84d9 container=Task{a410baf #1 type=home} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{30ede9e container=ActivityRecord{183851913 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t2} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{4bd98b5 container=Display{#0 state=ON size=1080x2424 ROTATION_0} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{a3f5b4a container=DefaultTaskDisplayArea@203673010 flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{69abb container=AppZoomOut:2:14@210011430 flags=0x0}
+E/TransitionChain(  674): ]
+E/TransitionChain(  674): }) and chain (TransitionRecord{4f295f9 id=37 type=OPEN flags=0x0 parallelCollectType=NONE recentsDisplayId=-1 c=[
+E/TransitionChain(  674):    ChangeInfo{6ae8223 container=Task{151e78e #2 type=home I=com.google.android.apps.nexuslauncher/.NexusLauncherActivity} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{c91e93e container=WindowedMagnification:0:31@93282306 flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{325639f container=ActivityRecord{125731169 u0 com.example.releasedemo/.SplashActivity t27} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{e064320 container=WallpaperWindowToken{931e8b7 showWhenLocked=true} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{7400cec container=Task{97f1b3b #27 type=standard A=10233:com.example.releasedemo} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{bde84d9 container=Task{a410baf #1 type=home} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{30ede9e container=ActivityRecord{183851913 u0 com.google.android.apps.nexuslauncher/.NexusLauncherActivity t2} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{4bd98b5 container=Display{#0 state=ON size=1080x2424 ROTATION_0} flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{a3f5b4a container=DefaultTaskDisplayArea@203673010 flags=0x0}
+E/TransitionChain(  674):    ChangeInfo{69abb container=AppZoomOut:2:14@210011430 flags=0x0}
+E/TransitionChain(  674): ]
+E/TransitionChain(  674): })
+W/ActivityManager(  674): Skipping manifest association check for null package. SourceUid: 10206, SourcePkg: null, TargetUid: 10206, TargetPkg: com.google.android.gms
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/ActivityManager(  674): Skipping manifest association check for null package. SourceUid: 10206, SourcePkg: null, TargetUid: 10206, TargetPkg: com.google.android.gms
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/ForegroundServiceTypeLoggerModule(  674): Foreground service start for UID: 10152 does not have any types
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/ForegroundServiceTypeLoggerModule(  674): FGS stop call for: 10152 has no types!
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libc    (12784): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+W/HWUI    (12784): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+E/WifiDataStall(  674): Ignore this poll. newStats: null txLinkSpeedMbps: 2 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@46d5ba
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libbinder.Binder( 1254): Large reply transaction of 1056768 bytes, interface descriptor , function: UNKNOWN_FUNCTION_NAME, code: 1, flags: 17
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/HWUI    (12784): Unknown dataspace 0
+W/InputChannel-JNI(  674): Channel already disposed.
+W/libc    (12784): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libbinder.ServiceManagerCppClient(  519): Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10233 pid=12784
+W/libbinder.ServiceManagerCppClient(  519): Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10233 pid=12784
+W/libbinder.ServiceManagerCppClient(  519): Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10233 pid=12784
+W/libbinder.ServiceManagerCppClient(  519): Permission failure: android.permission.READ_FRAME_BUFFER from uid=10233 pid=12784
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libbinder.ServiceManagerCppClient(  674): Permission failure: android.permission.ACCESS_SURFACE_FLINGER from uid=10233 pid=0
+W/libbinder.ServiceManagerCppClient(  674): Permission failure: android.permission.ROTATE_SURFACE_FLINGER from uid=10233 pid=0
+W/libbinder.ServiceManagerCppClient(  674): Permission failure: android.permission.INTERNAL_SYSTEM_WINDOW from uid=10233 pid=0
+W/libbinder.ServiceManagerCppClient(  674): Permission failure: android.permission.READ_FRAME_BUFFER from uid=10233 pid=0
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/InputChannel-JNI(  674): Channel already disposed.
+W/PackageConfigPersister(  674): App-specific configuration not found for packageName: com.example.releasedemo and userId: 0
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libbinder.IPCThreadState(  580): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  580): Sending oneway calls to frozen process.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libbinder.BackendUnifiedServiceManager(12816): Thread Pool max thread count is 0. Cannot cache binder as linkToDeath cannot be implemented. serviceName: SurfaceFlingerAIDL
+W/libbinder.BpBinder(12816): Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+W/libbinder.ProcessState(12816): Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libc    (12816): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/app_process(12823): Unexpected CPU variant for x86: x86_64.
+W/app_process(12823): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+W/app_process(12823): ClassLoaderContext shared library size mismatch. Expected=2, found=0 (PCL[]{PCL[/system/framework/android.test.base.jar*1579129895]#PCL[/system/framework/android.test.mock.jar*1147775851]} | PCL[])
+W/app_process(12823): ClassLoaderContext classpath size mismatch. expected=0, found=1 (PCL[]{PCL[/system/framework/android.test.runner.jar*2652887513]{PCL[/system/framework/android.test.base.jar*1579129895]#PCL[/system/framework/android.test.mock.jar*1147775851]}#PCL[/system/framework/android.test.base.jar*1579129895]} | PCL[/system/framework/android.test.runner.jar*2652887513])
+E/FeatureFlagsImplExport(12823): android.os.flagging.AconfigStorageReadException: ERROR_PACKAGE_NOT_FOUND: package android.xr cannot be found on the device
+W/UiAutomation(12823): Created with deprecatead constructor, assumes DEFAULT_DISPLAY
+W/MagnificationConnectionManager(  674): requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/MagnificationConnectionManager(  674): requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+E/WifiDataStall(  674): Ignore this poll. newStats: null txLinkSpeedMbps: 2 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@46d5ba
+E/TaskPersister(  674): File error accessing recents directory (directory doesn't exist?).
+W/AccessibilityNodeInfoDumper(12823): Fetch time: 1ms
+W/MagnificationConnectionManager(  674): requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(12823): call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+W/libbinder.IPCThreadState(12823): call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/AS.PlaybackActivityMon(  674): No piid assigned for invalid/internal port id 16
+W/AS.PlaybackActivityMon(  674): No piid assigned for invalid/internal port id 16
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/FileUtils(  674): Failed to chmod(AtomicFile[/data/system_de/0/system/game-manager-service.xml])
+W/FileUtils(  674): android.system.ErrnoException: chmod failed: ENOENT (No such file or directory)
+W/FileUtils(  674): 	at libcore.io.Linux.chmod(Native Method)
+W/FileUtils(  674): 	at libcore.io.ForwardingOs.chmod(ForwardingOs.java:145)
+W/FileUtils(  674): 	at libcore.io.BlockGuardOs.chmod(BlockGuardOs.java:83)
+W/FileUtils(  674): 	at android.system.Os.chmod(Os.java:116)
+W/FileUtils(  674): 	at android.os.FileUtils.setPermissions(FileUtils.java:199)
+W/FileUtils(  674): 	at com.android.server.app.GameManagerSettings.writePersistentDataLocked(GameManagerSettings.java:179)
+W/FileUtils(  674): 	at com.android.server.app.GameManagerService$SettingsHandler.doHandleMessage(GameManagerService.java:329)
+W/FileUtils(  674): 	at com.android.server.app.GameManagerService$SettingsHandler.handleMessage(GameManagerService.java:310)
+W/FileUtils(  674): 	at android.os.Handler.dispatchMessageImpl(Handler.java:142)
+W/FileUtils(  674): 	at android.os.Handler.dispatchMessage(Handler.java:126)
+W/FileUtils(  674): 	at android.os.Looper.loopOnce(Looper.java:295)
+W/FileUtils(  674): 	at android.os.Looper.loop(Looper.java:398)
+W/FileUtils(  674): 	at android.os.HandlerThread.run(HandlerThread.java:140)
+W/FileUtils(  674): 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/InputChannel-JNI(  674): Channel already disposed.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/InputChannel-JNI(  674): Channel already disposed.
+W/PackageConfigPersister(  674): App-specific configuration not found for packageName: com.example.releasedemo and userId: 0
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libbinder.BackendUnifiedServiceManager(12849): Thread Pool max thread count is 0. Cannot cache binder as linkToDeath cannot be implemented. serviceName: SurfaceFlingerAIDL
+W/libbinder.BpBinder(12849): Linking to death on android.gui.ISurfaceComposer but there are no threads (yet?) listening to incoming transactions. See ProcessState::startThreadPool and ProcessState::setThreadPoolMaxThreadCount. Generally you should setup the binder threadpool before other initialization steps.
+W/libbinder.ProcessState(12849): Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/libc    (12849): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+W/HidDeviceService( 1106): unregisterAppUid(): caller UID doesn't match user UID
+E/WifiDataStall(  674): Ignore this poll. newStats: null txLinkSpeedMbps: 2 rxLinkSpeedMbps: 2 rssi: -50 connectionCapabilities: com.android.server.wifi.WifiNative$ConnectionCapabilities@46d5ba
+W/app_process(12856): Unexpected CPU variant for x86: x86_64.
+W/app_process(12856): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+W/app_process(12856): ClassLoaderContext shared library size mismatch. Expected=2, found=0 (PCL[]{PCL[/system/framework/android.test.base.jar*1579129895]#PCL[/system/framework/android.test.mock.jar*1147775851]} | PCL[])
+W/app_process(12856): ClassLoaderContext classpath size mismatch. expected=0, found=1 (PCL[]{PCL[/system/framework/android.test.runner.jar*2652887513]{PCL[/system/framework/android.test.base.jar*1579129895]#PCL[/system/framework/android.test.mock.jar*1147775851]}#PCL[/system/framework/android.test.base.jar*1579129895]} | PCL[/system/framework/android.test.runner.jar*2652887513])
+E/FeatureFlagsImplExport(12856): android.os.flagging.AconfigStorageReadException: ERROR_PACKAGE_NOT_FOUND: package android.xr cannot be found on the device
+W/UiAutomation(12856): Created with deprecatead constructor, assumes DEFAULT_DISPLAY
+W/MagnificationConnectionManager(  674): requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/MagnificationConnectionManager(  674): requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/AccessibilityNodeInfoDumper(12856): Fetch time: 2ms
+W/MagnificationConnectionManager(  674): requestConnection duplicated request: connect=false, mConnectionState=DISCONNECTED
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(12856): call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+W/libbinder.IPCThreadState(12856): call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+W/libbinder.IPCThreadState(12856): call to talkWithDriver in joinThreadPool returned error: -9 (Bad file descriptor), FD: -1
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/libbinder.IPCThreadState(  674): Sending oneway calls to frozen process.
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+W/skia    (  519): AGTM parsing failed flags.readFromStream(s) at 159
+E/TaskPersister(  674): File error accessing recents directory (directory doesn't exist?).

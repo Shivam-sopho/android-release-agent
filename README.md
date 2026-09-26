@@ -21,35 +21,47 @@ This agent starts from the two compiled APKs instead. The hard bet isn't "drive 
 
 ## Architecture
 
-```
- ┌────────────┐   upload old.apk/new.apk    ┌──────────────┐
- │ Browser UI │ ───────────────────────────▶│  demo-ui      │
- │ (control   │◀─── streamed reasoning ─────│  (Express)    │
- │  panel)    │      + approval prompts     └──────┬────────┘
- └────────────┘                                     │ proxies session/turn API
-                                                     ▼
-                                          ┌────────────────────┐
-                                          │  TrueForge          │  agent harness:
-                                          │  (npx @truefoundry/ │  sessions, turns, MCP
-                                          │   trueforge)        │  wiring, approval gates
-                                          └──────────┬──────────┘
-                                                     │ MCP (Streamable HTTP)
-                                                     ▼
-                                          ┌────────────────────┐
-                                          │  mcp-server          │  diff_apks, adb_*,
-                                          │  (our tools)         │  write_report,
-                                          └──────────┬──────────┘  request_release_approval
-                                                     │ adb
-                                                     ▼
-                                          ┌────────────────────┐
-                                          │  Android emulator    │  running demo-app
-                                          └────────────────────┘
+```mermaid
+flowchart TB
+    User(["You"])
+    UI["demo-ui control panel\n(Express + browser)"]
+    TF["TrueForge\nagent harness — sessions, turns,\nMCP wiring, approval gates"]
+    LLM[("Model provider\nAnthropic / OpenRouter")]
+    MCP["mcp-server\ndiff_apks, adb_*, write_report,\nrequest_release_approval"]
+    EMU["Android emulator\nrunning demo-app"]
+
+    User -- "upload old.apk + new.apk" --> UI
+    UI -- "create session / turn" --> TF
+    TF <-- "reasoning + tool-call decisions" --> LLM
+    TF -- "MCP: Streamable HTTP" --> MCP
+    MCP -- "adb" --> EMU
+    MCP -- "tool results" --> TF
+    TF -- "streamed events +\ntool.approval_required" --> UI
+    UI -- "Allow / Deny" --> TF
+    UI -- "live log + screenshots" --> User
+
+    style TF fill:#4f8cff,color:#fff
+    style MCP fill:#2ecc71,color:#06210f
+    style EMU fill:#232a33,color:#fff
 ```
 
 The **approval gate** is not something we bolted on: `request_release_approval` is registered
 in TrueForge's `require_approval_for_tools`, so the harness itself pauses the turn and waits for
 an explicit human `allow`/`deny` before the agent can conclude. That's the safety checkpoint the
 hackathon's rubric asks for, enforced by the harness, not by agent-side promise-keeping.
+
+### Agent method
+
+```mermaid
+flowchart LR
+    A["diff_apks\n(compiled binary diff:\nmanifest + per-dex-file\nstring pool + class hashes)"] --> B["Impact analysis\nwhich journeys does\nthis change put at risk?"]
+    B --> C["Journey execution\nadb_install / adb_launch /\nadb_tap / adb_dump_ui"]
+    C --> D["Evidence capture\nadb_screenshot / adb_logcat_dump"]
+    D --> E["write_report"]
+    E --> F{"request_release_approval\n— HARD STOP"}
+    F -- "human: Allow" --> G(["Release ships"])
+    F -- "human: Deny" --> H(["Release blocked"])
+```
 
 ## Repo layout
 
@@ -58,10 +70,12 @@ hackathon's rubric asks for, enforced by the harness, not by agent-side promise-
   SharedPreferences file/keys), which causes existing users to be silently logged out after an
   in-place app upgrade. This is the bug the agent is supposed to catch without being told where
   it is.
-- `mcp-server/` — the actual tools the agent calls: `diff_apks` (manifest + dex string-pool diff
-  between two APKs), `adb_install`/`adb_force_stop`/`adb_launch`/`adb_tap`/`adb_dump_ui`/
-  `adb_screenshot`/`adb_logcat_*`, `write_report`, `request_release_approval`. Exposed over MCP
-  Streamable HTTP.
+- `mcp-server/` — the actual tools the agent calls: `diff_apks` (manifest + per-dex-file
+  string-pool/class-hash diff between two APKs), `adb_install`/`adb_force_stop`/`adb_launch`/
+  `adb_tap`/`adb_dump_ui`/`adb_screenshot`/`adb_logcat_*`, `write_report`,
+  `request_release_approval`. Exposed over MCP Streamable HTTP.
+  Includes `run-manual-demo.mjs`, which calls the same tools directly (no LLM in the loop) to
+  produce `evidence/REPORT.md` — used while a model-provider key was still being funded.
 - `demo-ui/` — the control-panel web app: drop in the two APKs, watch the agent's reasoning and
   tool calls stream live, click Allow/Deny on the approval prompt.
 - `scripts/setup-trueforge.mjs` — idempotent script that registers the MCP server, a model
@@ -111,6 +125,19 @@ Open `http://localhost:8792`, drop in `artifacts/old.apk` and `artifacts/new.apk
 two builds of the same app), click **Run Release Agent**, and approve or deny the release when
 prompted.
 
+## Sample run (real evidence, from before the LLM key was funded)
+
+**[Full report: `evidence/REPORT.md`](evidence/REPORT.md)** — a complete run of the tool
+pipeline (`diff_apks` → install old.apk → login → force-stop → install new.apk `-r` → relaunch)
+against the real emulator, with real screenshots and logcat. This particular run was driven by
+`scripts/run-manual-demo.mjs` (deterministic, calling the exact same MCP tools) rather than the
+live LLM agent loop, while a working model-provider key was still being sorted — labeled as such
+in the report itself. Verdict: `REGRESSION_DETECTED`, correctly.
+
+| Logged in (old.apk) | Bounced to login after upgrading to new.apk |
+|---|---|
+| ![](evidence/A2_old_after_login.png) | ![](evidence/B_after_upgrade_relaunch.png) |
+
 ## Rebuilding the demo app yourself
 
 ```bash
@@ -130,10 +157,13 @@ silent connect timeouts to model providers), and the control-panel UI.
 
 ## Known limitations
 
-- `diff_apks` uses a lightweight manifest + dex string-pool diff, not a full bytecode
-  decompiler — it's enough to point at *which* class/component changed, not a semantic
-  method-level diff. Good enough to drive journey selection; a production version would want a
-  proper dex differ (e.g. `diffuse`) or ProGuard mapping-file-aware diffing.
+- `diff_apks` diffs the manifest plus, per dex file, string pools and a per-class content hash —
+  it correctly handles multidex (an early bug in this project diffed only `classes.dex` and
+  silently missed app code that D8 had placed in `classes3.dex`; fixed by diffing every
+  `classes*.dex` present in either build). It still isn't a full bytecode decompiler: it tells you
+  *which* class changed and what string constants moved, not a semantic method-level diff. Good
+  enough to drive journey selection; a production version would want a proper dex differ (e.g.
+  `diffuse`) or ProGuard mapping-file-aware diffing for obfuscated release builds.
 - The demo app's "journeys" are simple by design (login, upgrade-preserves-session) so the demo
   is legible on camera. The agent isn't limited to a fixed journey catalog — it reasons about
   what to test from the diff — but it's only ever been exercised against this one app.

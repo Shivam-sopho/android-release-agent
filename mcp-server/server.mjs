@@ -53,27 +53,47 @@ server.registerTool(
       }
     }
 
-    const oldDex = path.join(oldDir, "classes.dex");
-    const newDex = path.join(newDir, "classes.dex");
-    const oldSize = fs.existsSync(oldDex) ? fs.statSync(oldDex).size : 0;
-    const newSize = fs.existsSync(newDex) ? fs.statSync(newDex).size : 0;
+    // Multidex apps split classes across classes.dex, classes2.dex, classes3.dex, ... —
+    // diffing only classes.dex silently misses app code that landed in a later dex file
+    // (e.g. classes.dex is often just the desugared stdlib; app code can end up in classes3.dex).
+    // Compare every dex file present in either build, by name.
+    const oldDexFiles = fs.readdirSync(oldDir).filter((f) => /^classes\d*\.dex$/.test(f));
+    const newDexFiles = fs.readdirSync(newDir).filter((f) => /^classes\d*\.dex$/.test(f));
+    const allDexNames = [...new Set([...oldDexFiles, ...newDexFiles])].sort();
 
-    let stringDiff = "(classes.dex missing)";
-    if (fs.existsSync(oldDex) && fs.existsSync(newDex)) {
-      const oldStrings = execSync(`strings "${oldDex}" | sort -u`, { encoding: "utf8" });
-      const newStrings = execSync(`strings "${newDex}" | sort -u`, { encoding: "utf8" });
-      fs.writeFileSync(path.join(tmp, "old_strings.txt"), oldStrings);
-      fs.writeFileSync(path.join(tmp, "new_strings.txt"), newStrings);
-      stringDiff = execSync(`diff -u "${path.join(tmp, "old_strings.txt")}" "${path.join(tmp, "new_strings.txt")}" || true`, {
-        encoding: "utf8",
-      });
-      if (!stringDiff.trim()) stringDiff = "(no string-pool differences)";
+    const sizeLines = [];
+    const stringDiffs = [];
+    for (const name of allDexNames) {
+      const oldPath = path.join(oldDir, name);
+      const newPath = path.join(newDir, name);
+      const oldExists = fs.existsSync(oldPath);
+      const newExists = fs.existsSync(newPath);
+      const oldSize = oldExists ? fs.statSync(oldPath).size : 0;
+      const newSize = newExists ? fs.statSync(newPath).size : 0;
+
+      if (!oldExists) {
+        sizeLines.push(`${name}: added in new.apk (${newSize} bytes)`);
+        continue;
+      }
+      if (!newExists) {
+        sizeLines.push(`${name}: removed in new.apk (was ${oldSize} bytes)`);
+        continue;
+      }
+      sizeLines.push(`${name}: ${oldSize} -> ${newSize} bytes (delta ${newSize - oldSize})${oldSize === newSize ? " [identical size]" : ""}`);
+
+      const oldStrings = execSync(`strings "${oldPath}" | sort -u`, { encoding: "utf8" });
+      const newStrings = execSync(`strings "${newPath}" | sort -u`, { encoding: "utf8" });
+      if (oldStrings === newStrings) continue; // no point emitting a no-op diff per file
+      const oldFile = path.join(tmp, `${name}.old.strings`);
+      const newFile = path.join(tmp, `${name}.new.strings`);
+      fs.writeFileSync(oldFile, oldStrings);
+      fs.writeFileSync(newFile, newStrings);
+      const d = execSync(`diff -u "${oldFile}" "${newFile}" || true`, { encoding: "utf8" });
+      if (d.trim()) stringDiffs.push(`--- ${name} string-pool diff ---\n${d}`);
     }
 
-    // File-level listing diff (which entries in the APK changed size/hash) — catches which
-    // packages/classes were touched without needing a full bytecode decompiler.
-    const oldList = execSync(`cd "${oldDir}" && find . -type f -name "*.dex" -o -type f | sort`, { encoding: "utf8", shell: "/bin/bash" }).trim();
-    const listDiff = `old.apk dex size=${oldSize} bytes, new.apk dex size=${newSize} bytes (delta ${newSize - oldSize} bytes)`;
+    const listDiff = sizeLines.join("\n");
+    const stringDiff = stringDiffs.length ? stringDiffs.join("\n\n") : "(no string-pool differences in any dex file)";
 
     fs.rmSync(tmp, { recursive: true, force: true });
 
