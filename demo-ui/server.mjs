@@ -183,8 +183,9 @@ app.post("/api/run", async (req, res) => {
     `2. Reason about which user journeys that change could affect (don't just crawl randomly — pick journeys based on what the diff implies, whatever this specific app turns out to do).\n` +
     `3. For each journey you pick: adb_install old.apk fresh, drive it with adb_tap/adb_dump_ui (use adb_dump_ui first to find real element bounds — never guess coordinates, this app's layout is unknown to you), adb_screenshot at key steps, adb_logcat_clear before / adb_logcat_dump after. Then adb_force_stop, adb_install -r new.apk (in-place upgrade, keeps app data), repeat the same journey, and compare the end state (use adb_dump_ui's focused_window as ground truth for which screen you ended up on).\n` +
     `4. Prioritize whatever the diff actually implicates — if it touches auth/session code, test login and an 'existing session survives an app upgrade' journey; if it touches something else, test that instead.\n` +
-    `5. write_report with a markdown regression report (what changed, what you tested, what you found, evidence file paths).\n` +
-    `6. Always finish by calling request_release_approval with your verdict — even if everything passed.`;
+    `5. If you find a regression, propose a concrete fix grounded in the actual diff (the specific renamed identifier, the specific missing check) — real code, not generic advice.\n` +
+    `6. write_report with a markdown regression report: what changed, what you tested and why, what you found, your suggested fix (with code) if applicable, and evidence file paths.\n` +
+    `7. Always finish by calling request_release_approval with your verdict — even if everything passed.`;
 
   await proxyTurn({ input: [{ type: "user.message", content: message }], stream: true }, res);
 });

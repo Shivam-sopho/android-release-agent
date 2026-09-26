@@ -284,6 +284,32 @@ nothing *looks* broken in a fresh-install smoke test (J4 passes!) or a crash das
 ${screenshotsRow(regressionJourney.steps)
   .replace(/width="220"/g, 'width="320"')
   .replace(/<td/g, "\n<td")}
+
+## Suggested fix
+
+The old data isn't gone — it's sitting in \`session_prefs\`/\`is_logged_in\` on every device that
+had the previous build installed. The new code just never looks there. Fastest fix is a one-time
+migration fallback on read:
+
+\`\`\`kotlin
+class AuthManager(context: Context) {
+    private val prefs = context.getSharedPreferences("auth_prefs", Context.MODE_PRIVATE)
+    private val legacyPrefs = context.getSharedPreferences("session_prefs", Context.MODE_PRIVATE)
+
+    fun isLoggedIn(): Boolean =
+        prefs.getBoolean("isLoggedIn", false) || legacyPrefs.getBoolean("is_logged_in", false)
+
+    fun login(username: String) {
+        prefs.edit().putBoolean("isLoggedIn", true).putString("username", username).apply()
+    }
+    // On a hit against legacyPrefs, also worth writing it into the new format immediately
+    // (prefs.edit().putBoolean("isLoggedIn", true).apply()) so the fallback is only needed once.
+}
+\`\`\`
+
+**Longer-term:** treat any SharedPreferences file/key rename as a schema migration, not a
+find-and-replace — grep for the old file/key name across the codebase before renaming, and add
+a migration step in the same commit, not as a followup.
 `
   : "## Root cause\n\nNo regression found — all journeys passed.";
 

@@ -61,24 +61,33 @@ flowchart LR
 
 ## Repo layout
 
-- `demo-app/` — a minimal Android app (Kotlin, plain Views) used as the demo target. Two
-  commits: a baseline build, then a one-file regression (`AuthManager.kt` renames its
-  SharedPreferences file/keys), which causes existing users to be silently logged out after an
-  in-place app upgrade. This is the bug the agent is supposed to catch without being told where
-  it is.
+- `demo-app/` — demo scenario 1: a minimal Android app (Kotlin, plain Views). Two commits: a
+  baseline build, then a one-file regression (`AuthManager.kt` renames its SharedPreferences
+  file/keys), which causes existing users to be silently logged out after an in-place app
+  upgrade. No crash, no exception — the app just quietly forgets who you are. This is the bug
+  the agent is supposed to catch without being told where it is.
+- `demo-app-notes/` — demo scenario 2: a small notes app. Same *class* of bug (a
+  SharedPreferences file/key rename with no migration on upgrade) hitting a completely different
+  feature (saved notes silently vanish instead of a session dropping) — shows the agent reasons
+  from the diff each time rather than pattern-matching one specific bug shape.
 - `mcp-server/` — the actual tools the agent calls: `diff_apks` (manifest + per-dex-file
   string-pool/class-hash diff between two APKs), `adb_install`/`adb_force_stop`/`adb_launch`/
   `adb_tap`/`adb_dump_ui`/`adb_screenshot`/`adb_logcat_*`, `write_report`,
   `request_release_approval`. Exposed over MCP Streamable HTTP.
-  Includes `run-manual-demo.mjs`, which calls the same tools directly (no LLM in the loop) to
-  produce `evidence/REPORT.md` — used while a model-provider key was still being funded.
-- `demo-ui/` — the control-panel web app: drop in the two APKs, watch the agent's reasoning and
-  tool calls stream live, click Allow/Deny on the approval prompt.
+  Includes `run-manual-demo.mjs` and `run-notes-demo.mjs`, which call the same tools directly (no
+  LLM in the loop) to produce each scenario's `REPORT.md` — used while a model-provider key was
+  still being funded — and `live.mjs`, a small CLI for driving the tools live (see "Live mode"
+  below).
+- `demo-ui/` — the control-panel web app: drop in two APKs, watch the agent's reasoning and tool
+  calls stream live, click Allow/Deny on the approval prompt, then open/download the rendered
+  report. Auto-detects the real `applicationId` from whatever APK is uploaded (via `aapt dump
+  badging`) — it isn't hardcoded to either demo app.
 - `scripts/setup-trueforge.mjs` — idempotent script that registers the MCP server, a model
   provider, and the agent with a running TrueForge instance.
-- `agent-instructions.txt` — the agent's system prompt / method.
-- `artifacts/` — prebuilt `old.apk` and `new.apk` so you can run the demo without building the
-  Android app yourself.
+- `agent-instructions.txt` — the agent's system prompt / method. App-agnostic by design: it
+  reasons from whatever `diff_apks` returns rather than assuming a login/session app.
+- `artifacts/` — prebuilt `old.apk`/`new.apk` for demo scenario 1.
+- `scenarios/notes-data-loss/` — prebuilt `old.apk`/`new.apk` and `evidence/` for demo scenario 2.
 
 ## Prerequisites
 
@@ -121,16 +130,20 @@ Open `http://localhost:8792`, drop in `artifacts/old.apk` and `artifacts/new.apk
 two builds of the same app), click **Run Release Agent**, and approve or deny the release when
 prompted.
 
-## Sample run (real evidence, from before the LLM key was funded)
+## Sample runs (real evidence, from before the LLM key was funded)
+
+Two different apps, two different bug shapes, same pipeline — showing the agent reasons from
+each diff rather than pattern-matching one specific regression. Both reports include a
+**Suggested fix** section: real code grounded in the actual diff, not generic advice.
+
+### Scenario 1 — auth app (silent, no crash)
 
 **[Full report: `evidence/REPORT.md`](evidence/REPORT.md)** — five journeys run against the real
-emulator (the same catalog from the original pitch: Login, Login→Kill→Reopen, Login→Logout→Login,
-a fresh-install sanity check on the new build, and Existing session→Upgrade→Reopen), each with a
-verdict, screenshots at every step, UI dumps, and logcat. A summary table, an impact-analysis
-section explaining *why* these journeys were picked from the diff, and a root-cause deep-dive for
-the one that fails. Driven by [`mcp-server/run-manual-demo.mjs`](mcp-server/run-manual-demo.mjs)
-(deterministic, calling the exact same MCP tools) rather than the live LLM agent loop, while a
-working model-provider key was still being sorted — labeled as such in the report itself.
+emulator (Login, Login→Kill→Reopen, Login→Logout→Login, a fresh-install sanity check on the new
+build, and Existing session→Upgrade→Reopen), each with a verdict, screenshots at every step, UI
+dumps, and logcat. A summary table, an impact-analysis section explaining *why* these journeys
+were picked from the diff, a root-cause deep-dive, and a suggested fix (with code) for the one
+that fails. Driven by [`mcp-server/run-manual-demo.mjs`](mcp-server/run-manual-demo.mjs).
 
 | # | Journey | Result |
 |---|---|---|
@@ -146,6 +159,37 @@ implicates — an existing session surviving an in-place upgrade — fails.
 | Logged in (old.apk, pre-upgrade) | Bounced to login after upgrading to new.apk |
 |---|---|
 | ![](evidence/J5_1_old_logged_in.png) | ![](evidence/J5_2_after_upgrade_relaunch.png) |
+
+### Scenario 2 — notes app (visible data loss)
+
+**[Full report: `scenarios/notes-data-loss/evidence/REPORT.md`](scenarios/notes-data-loss/evidence/REPORT.md)**
+— same mechanism (a SharedPreferences file/key rename with no migration), different feature: this
+time it's the user's saved notes that vanish, not a login session. Driven by
+[`mcp-server/run-notes-demo.mjs`](mcp-server/run-notes-demo.mjs).
+
+| Notes saved on old.apk | Gone after upgrading to new.apk |
+|---|---|
+| ![](scenarios/notes-data-loss/evidence/J1_three_notes_saved.png) | ![](scenarios/notes-data-loss/evidence/J2_after_upgrade.png) |
+
+Try it yourself: drop `scenarios/notes-data-loss/old.apk` and `new.apk` into the control panel —
+same UI, same pipeline, a completely different app and bug.
+
+## Live mode
+
+The control panel's purple **"Watch Live Run"** button doesn't go through TrueForge/a model
+provider at all — it opens the same event stream and approval-gate UI, but the tool calls are
+driven by [`mcp-server/live.mjs`](mcp-server/live.mjs), run by hand, one command per step:
+
+```bash
+node mcp-server/live.mjs say "reasoning text"              # a reasoning bubble
+node mcp-server/live.mjs call diff_apks '{"old_apk":...}'  # a real tool call + real result
+node mcp-server/live.mjs gate PASS "summary"               # the real approval gate; blocks
+                                                            # until Allow/Deny is clicked
+```
+
+This exists for demoing the harness, the real MCP tools, and the real approval gate without a
+funded model-provider key — every tool call is genuine, but a human (not a model) is deciding
+which one to make next. It is not an autonomous run, and isn't presented as one.
 
 ## Rebuilding the demo app yourself
 
