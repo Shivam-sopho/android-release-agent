@@ -7,6 +7,9 @@ them, and stops for a human approval before signing off on release.
 Built for the [TrueFoundry × Polaris "Agents That Act" hackathon](https://www.truefoundry.com/truefoundry-hackathon)
 (#agentsthatact), community submission track.
 
+**[Solution writeup](WRITEUP.md)** — the problem, what the agent reaches, where it stops, the
+architecture, how TrueForge was used, and what's real vs. mocked, in ~300 words.
+
 ## Why
 
 Existing tools (Firebase Test Lab's Robo test, most 2025/2026 AI QA agents) either crawl the UI

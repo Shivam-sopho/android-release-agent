@@ -225,6 +225,8 @@
     </div>
     <input type="file" id="fileNew" accept=".apk" />
 
+    <div id="detectedPackage" style="display:none; font-size: 11.5px; color: var(--dim); background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-family: ui-monospace, monospace;"></div>
+
     <div class="sidebar-label" style="margin-top: 8px;">Run</div>
     <button class="run primary" id="runBtn" disabled><span>▶</span> Run via TrueForge</button>
     <button class="run live" id="runLiveBtn" disabled><span>⚡</span> Watch Live Run with Trueforge Harness</button>
@@ -402,6 +404,14 @@ async function doUpload() {
     setStatus('Upload failed.', 'error');
     addEntry('error', 'Error', '⚠', escapeHtml(await uploadRes.text()));
     return false;
+  }
+  const { package_id } = await uploadRes.json();
+  const pkgEl = document.getElementById('detectedPackage');
+  if (package_id) {
+    pkgEl.textContent = 'Detected package: ' + package_id;
+    pkgEl.style.display = 'block';
+  } else {
+    pkgEl.style.display = 'none';
   }
   return true;
 }
