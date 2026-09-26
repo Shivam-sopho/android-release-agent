@@ -46,7 +46,9 @@ async function uninstall() {
 
 const diffOutput = await call("diff_apks", { old_apk: OLD_APK, new_apk: NEW_APK });
 
-// Journey 1: baseline — save 3 notes on old.apk, confirm they list.
+// Journey 1: baseline — save 1 note on old.apk, confirm it lists. (A single
+// note makes the before/after contrast unambiguous: one clean note, then
+// "No notes yet." — no need to count multiple entries to see the loss.)
 await uninstall();
 await call("adb_install", { apk_path: OLD_APK });
 await call("adb_launch", { package_id: PKG });
@@ -54,11 +56,7 @@ await wait(1500);
 await call("adb_screenshot", { label: "J1_empty" });
 await call("adb_tap", { x: SAVE_BTN.x, y: SAVE_BTN.y });
 await wait(500);
-await call("adb_tap", { x: SAVE_BTN.x, y: SAVE_BTN.y });
-await wait(500);
-await call("adb_tap", { x: SAVE_BTN.x, y: SAVE_BTN.y });
-await wait(500);
-await call("adb_screenshot", { label: "J1_three_notes_saved" });
+await call("adb_screenshot", { label: "J1_note_saved" });
 const dumpJ1 = await call("adb_dump_ui");
 const j1Notes = notesText(dumpJ1);
 const j1Pass = !j1Notes.includes("No notes");
@@ -141,11 +139,11 @@ and the key scheme changed in the same release.
 
 | # | Journey | Expected | Actual | Result |
 |---|---|---|---|---|
-| J1 | Save 3 notes on old.apk | Notes list shows all 3 | ${j1Notes.replace(/\|/g, "\\|").slice(0, 60)}... | ${j1Pass ? "✅ PASS" : "🔴 FAIL"} |
-| J2 | Upgrade to new.apk, reopen | Same 3 notes still listed | ${j2Notes} | ${j2Pass ? "✅ PASS" : "🔴 **FAIL**"} |
+| J1 | Save 1 note on old.apk | Note is listed | ${j1Notes.replace(/\|/g, "\\|").slice(0, 60)} | ${j1Pass ? "✅ PASS" : "🔴 FAIL"} |
+| J2 | Upgrade to new.apk, reopen | Same note still listed | ${j2Notes} | ${j2Pass ? "✅ PASS" : "🔴 **FAIL**"} |
 
 <table><tr>
-<td align="center"><img src="J1_three_notes_saved.png" width="260"><br><sub>3 notes saved on old.apk</sub></td>
+<td align="center"><img src="J1_note_saved.png" width="260"><br><sub>1 note saved on old.apk</sub></td>
 <td align="center"><img src="J2_after_upgrade.png" width="260"><br><sub>Same install, after upgrading to new.apk</sub></td>
 </tr></table>
 
@@ -156,7 +154,7 @@ ${
 
 Confirmed by the diff: \`NotesStore\` switched from a single delimited-string value under
 \`notes_store\`/\`all_notes\` to indexed keys (\`note_0\`, \`note_1\`, ...) under a renamed file
-\`notes_data\`, with no migration. The 3 notes saved in J1 are still physically on the device — in
+\`notes_data\`, with no migration. The note saved in J1 is still physically on the device — in
 the old file, under the old key — but the new code only ever looks in the new file, so it reads
 nothing and shows "No notes yet."
 

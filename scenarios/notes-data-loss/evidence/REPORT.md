@@ -22,8 +22,8 @@ classes3.dex: 6940 -> 6036 bytes (delta -904)
 
 ### AndroidManifest.xml diff
 ```
---- /tmp/apkdiff-BcLcGI/old_manifest.txt	2026-09-26 15:09:56.689908684 +0530
-+++ /tmp/apkdiff-BcLcGI/new_manifest.txt	2026-09-26 15:09:56.689908684 +0530
+--- /tmp/apkdiff-wQBVsb/old_manifest.txt	2026-09-26 15:34:46.879516403 +0530
++++ /tmp/apkdiff-wQBVsb/new_manifest.txt	2026-09-26 15:34:46.879516403 +0530
 @@ -1,7 +1,7 @@
  N: android=http://schemas.android.com/apk/res/android
    E: manifest (line=2)
@@ -40,8 +40,8 @@ classes3.dex: 6940 -> 6036 bytes (delta -904)
 ### classes.dex string-pool diff (reveals changed string literals — e.g. SharedPreferences keys/file names, constants)
 ```
 --- classes3.dex string-pool diff ---
---- /tmp/apkdiff-BcLcGI/classes3.dex.old.strings	2026-09-26 15:09:56.855911181 +0530
-+++ /tmp/apkdiff-BcLcGI/classes3.dex.new.strings	2026-09-26 15:09:56.855911181 +0530
+--- /tmp/apkdiff-wQBVsb/classes3.dex.old.strings	2026-09-26 15:34:47.049518262 +0530
++++ /tmp/apkdiff-wQBVsb/classes3.dex.new.strings	2026-09-26 15:34:47.049518262 +0530
 @@ -1,58 +1,39 @@
 - $i$a$-filter-NotesStore$getAll$1
  ,$i$a$-ifBlank-MainActivity$onCreate$1$text$1
@@ -183,11 +183,11 @@ and the key scheme changed in the same release.
 
 | # | Journey | Expected | Actual | Result |
 |---|---|---|---|---|
-| J1 | Save 3 notes on old.apk | Notes list shows all 3 | • Note 47 /  / • Note 646 /  / • Note 208... | ✅ PASS |
-| J2 | Upgrade to new.apk, reopen | Same 3 notes still listed | No notes yet. | 🔴 **FAIL** |
+| J1 | Save 1 note on old.apk | Note is listed | • Note 327 | ✅ PASS |
+| J2 | Upgrade to new.apk, reopen | Same note still listed | No notes yet. | 🔴 **FAIL** |
 
 <table><tr>
-<td align="center"><img src="J1_three_notes_saved.png" width="260"><br><sub>3 notes saved on old.apk</sub></td>
+<td align="center"><img src="J1_note_saved.png" width="260"><br><sub>1 note saved on old.apk</sub></td>
 <td align="center"><img src="J2_after_upgrade.png" width="260"><br><sub>Same install, after upgrading to new.apk</sub></td>
 </tr></table>
 
@@ -195,7 +195,7 @@ and the key scheme changed in the same release.
 
 Confirmed by the diff: `NotesStore` switched from a single delimited-string value under
 `notes_store`/`all_notes` to indexed keys (`note_0`, `note_1`, ...) under a renamed file
-`notes_data`, with no migration. The 3 notes saved in J1 are still physically on the device — in
+`notes_data`, with no migration. The note saved in J1 is still physically on the device — in
 the old file, under the old key — but the new code only ever looks in the new file, so it reads
 nothing and shows "No notes yet."
 
@@ -259,8 +259,8 @@ classes3.dex: 6940 -> 6036 bytes (delta -904)
 
 ### AndroidManifest.xml diff
 ```
---- /tmp/apkdiff-BcLcGI/old_manifest.txt	2026-09-26 15:09:56.689908684 +0530
-+++ /tmp/apkdiff-BcLcGI/new_manifest.txt	2026-09-26 15:09:56.689908684 +0530
+--- /tmp/apkdiff-wQBVsb/old_manifest.txt	2026-09-26 15:34:46.879516403 +0530
++++ /tmp/apkdiff-wQBVsb/new_manifest.txt	2026-09-26 15:34:46.879516403 +0530
 @@ -1,7 +1,7 @@
  N: android=http://schemas.android.com/apk/res/android
    E: manifest (line=2)
@@ -277,8 +277,8 @@ classes3.dex: 6940 -> 6036 bytes (delta -904)
 ### classes.dex string-pool diff (reveals changed string literals — e.g. SharedPreferences keys/file names, constants)
 ```
 --- classes3.dex string-pool diff ---
---- /tmp/apkdiff-BcLcGI/classes3.dex.old.strings	2026-09-26 15:09:56.855911181 +0530
-+++ /tmp/apkdiff-BcLcGI/classes3.dex.new.strings	2026-09-26 15:09:56.855911181 +0530
+--- /tmp/apkdiff-wQBVsb/classes3.dex.old.strings	2026-09-26 15:34:47.049518262 +0530
++++ /tmp/apkdiff-wQBVsb/classes3.dex.new.strings	2026-09-26 15:34:47.049518262 +0530
 @@ -1,58 +1,39 @@
 - $i$a$-filter-NotesStore$getAll$1
  ,$i$a$-ifBlank-MainActivity$onCreate$1$text$1
@@ -443,38 +443,24 @@ tapped (540, 534)
 ````
 
 
-### adb_tap({"x":540,"y":534})
+### adb_screenshot({"label":"J1_note_saved"})
 
 ````
-tapped (540, 534)
-````
-
-
-### adb_tap({"x":540,"y":534})
-
-````
-tapped (540, 534)
-````
-
-
-### adb_screenshot({"label":"J1_three_notes_saved"})
-
-````
-saved /media/shivam/Developmet Work1/Hackathons/android-release-agent/scenarios/notes-data-loss/evidence/J1_three_notes_saved.png
+saved /media/shivam/Developmet Work1/Hackathons/android-release-agent/scenarios/notes-data-loss/evidence/J1_note_saved.png
 ````
 
 
 ### adb_dump_ui({})
 
 ````
-focused_window: mCurrentFocus=Window{f7a7a3c u0 com.example.notesdemo/com.example.notesdemo.MainActivity}
+focused_window: mCurrentFocus=Window{cbe85d1 u0 com.example.notesdemo/com.example.notesdemo.MainActivity}
 elements:
 text="" id="android:id/content" bounds=[0,142][1080,2361]
 text="My Notes" id="" bounds=[63,205][332,290]
 text="Write a note..." id="com.example.notesdemo:id/noteInput" bounds=[63,332][1017,450]
 text="SAVE NOTE" id="com.example.notesdemo:id/saveButton" bounds=[63,471][1017,597]
 text="Saved notes:" id="" bounds=[63,660][302,717]
-text="• Note 47&#10;&#10;• Note 646&#10;&#10;• Note 208" id="com.example.notesdemo:id/notesList" bounds=[63,738][1017,991]
+text="• Note 327" id="com.example.notesdemo:id/notesList" bounds=[63,738][1017,795]
 text="" id="android:id/statusBarBackground" bounds=[0,0][1080,142]
 text="" id="android:id/navigationBarBackground" bounds=[0,2361][1080,2424]
 ````
@@ -520,7 +506,7 @@ saved /media/shivam/Developmet Work1/Hackathons/android-release-agent/scenarios/
 ### adb_dump_ui({})
 
 ````
-focused_window: mCurrentFocus=Window{4f0b98e u0 com.example.notesdemo/com.example.notesdemo.MainActivity}
+focused_window: mCurrentFocus=Window{5313339 u0 com.example.notesdemo/com.example.notesdemo.MainActivity}
 elements:
 text="" id="android:id/content" bounds=[0,142][1080,2361]
 text="My Notes" id="" bounds=[63,205][332,290]
@@ -536,7 +522,7 @@ text="" id="android:id/navigationBarBackground" bounds=[0,2361][1080,2424]
 ### adb_logcat_dump({"label":"J2_logcat"})
 
 ````
-saved /media/shivam/Developmet Work1/Hackathons/android-release-agent/scenarios/notes-data-loss/evidence/J2_logcat.logcat.txt (1598 lines)
+saved /media/shivam/Developmet Work1/Hackathons/android-release-agent/scenarios/notes-data-loss/evidence/J2_logcat.logcat.txt (1161 lines)
 ````
 
 </details>
