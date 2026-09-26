@@ -126,7 +126,12 @@
     <input type="file" id="fileNew" accept=".apk" />
 
     <button class="run" id="runBtn" disabled>Run Release Agent</button>
+    <button class="run" id="runLiveBtn" disabled style="background:#8b5cf6">Watch Live Run</button>
     <div class="status" id="status">Waiting for both APKs…</div>
+    <div id="reportLinks" style="display:none; flex-direction:column; gap:8px;">
+      <a class="run" style="text-decoration:none; text-align:center; background:#2ecc71; color:#06210f;" href="/report" target="_blank">📄 Open Report</a>
+      <a class="run" style="text-decoration:none; text-align:center; background:#232a33;" href="/evidence/REPORT.md" download="release-regression-report.md">⬇ Download Report (.md)</a>
+    </div>
   </div>
   <div class="log" id="log"></div>
 </div>
@@ -137,10 +142,12 @@ const dropNew = document.getElementById('dropNew');
 const fileOld = document.getElementById('fileOld');
 const fileNew = document.getElementById('fileNew');
 const runBtn = document.getElementById('runBtn');
+const runLiveBtn = document.getElementById('runLiveBtn');
 const statusEl = document.getElementById('status');
 const logEl = document.getElementById('log');
 
 let oldFile = null, newFile = null;
+let liveMode = false;
 
 function wireDrop(dropEl, input, onFile) {
   dropEl.addEventListener('click', () => input.click());
@@ -155,7 +162,11 @@ function wireDrop(dropEl, input, onFile) {
 }
 wireDrop(dropOld, fileOld, (f) => { oldFile = f; document.getElementById('dropOldLabel').textContent = f.name; dropOld.classList.add('filled'); checkReady(); });
 wireDrop(dropNew, fileNew, (f) => { newFile = f; document.getElementById('dropNewLabel').textContent = f.name; dropNew.classList.add('filled'); checkReady(); });
-function checkReady() { runBtn.disabled = !(oldFile && newFile); }
+function checkReady() { runBtn.disabled = !(oldFile && newFile); runLiveBtn.disabled = !(oldFile && newFile); }
+
+function showReportLink() {
+  document.getElementById('reportLinks').style.display = 'flex';
+}
 
 function addEntry(cls, tag, html) {
   const div = document.createElement('div');
@@ -248,6 +259,7 @@ function handleEvent(ev) {
     addEntry('done', null, `— turn ${status} —`);
     if (status !== 'running') {
       statusEl.textContent = 'Idle. Waiting for the next turn.';
+      showReportLink();
     }
   } else if (ev.type === 'turn.created' || ev.type === 'thread.created') {
     // quiet
@@ -256,6 +268,14 @@ function handleEvent(ev) {
 
 async function decide(thread_id, tool_call_id, status) {
   addEntry('done', null, `— you chose: ${status} —`);
+  if (liveMode) {
+    await fetch('/api/live/decide', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tool_call_id, status }),
+    });
+    return;
+  }
   const res = await fetch('/api/approve', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -264,8 +284,7 @@ async function decide(thread_id, tool_call_id, status) {
   await consumeStream(res);
 }
 
-runBtn.addEventListener('click', async () => {
-  runBtn.disabled = true;
+async function doUpload() {
   statusEl.textContent = 'Uploading APKs…';
   logEl.innerHTML = '';
   const fd = new FormData();
@@ -275,13 +294,39 @@ runBtn.addEventListener('click', async () => {
   if (!uploadRes.ok) {
     statusEl.textContent = 'Upload failed.';
     addEntry('error', 'error', await uploadRes.text());
-    runBtn.disabled = false;
-    return;
+    return false;
   }
+  return true;
+}
+
+runBtn.addEventListener('click', async () => {
+  liveMode = false;
+  runBtn.disabled = true;
+  runLiveBtn.disabled = true;
+  document.getElementById('reportLinks').style.display = 'none';
+  if (!(await doUpload())) { runBtn.disabled = false; runLiveBtn.disabled = false; return; }
   statusEl.textContent = 'Agent running…';
   const res = await fetch('/api/run', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: '{}' });
   await consumeStream(res);
   statusEl.textContent = 'Done.';
+});
+
+runLiveBtn.addEventListener('click', async () => {
+  liveMode = true;
+  runBtn.disabled = true;
+  runLiveBtn.disabled = true;
+  document.getElementById('reportLinks').style.display = 'none';
+  if (!(await doUpload())) { runBtn.disabled = false; runLiveBtn.disabled = false; return; }
+  statusEl.textContent = 'Watching live run…';
+  const es = new EventSource('/api/live/stream');
+  es.onmessage = (ev) => {
+    try {
+      const parsed = JSON.parse(ev.data);
+      handleEvent(parsed);
+      if (parsed.type === 'turn.done') statusEl.textContent = 'Done.';
+    } catch (e) { console.error('bad live event', ev.data, e); }
+  };
+  es.onerror = () => { statusEl.textContent = 'Live stream disconnected.'; };
 });
 </script>
 </body>
