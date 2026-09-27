@@ -237,7 +237,10 @@ server.registerTool(
   async ({ markdown }) => {
     const file = path.join(EVIDENCE_DIR, "REPORT.md");
     fs.writeFileSync(file, markdown);
-    return text(`saved ${file}`);
+    // Return the full report content (not just a file path) so it's visible
+    // inline wherever this tool call is viewed — including TrueForge's own
+    // UI, which has no other way to see what's on disk.
+    return text(`saved ${file}\n\nRendered copy: http://127.0.0.1:8792/report\n\n---\n\n${markdown}`);
   }
 );
 
