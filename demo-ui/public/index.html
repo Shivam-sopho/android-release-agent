@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Autonomous Android Release Agent</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>" />
 <style>
   :root {
     --bg: #0a0c10;
@@ -198,6 +199,18 @@
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
   ::-webkit-scrollbar-track { background: transparent; }
+
+  .main { display: flex; flex-direction: column; min-height: 0; }
+  .phase-tracker { display: flex; gap: 6px; padding: 14px 32px; border-bottom: 1px solid var(--border); background: var(--panel); flex: none; }
+  .phase { flex: 1; text-align: center; padding: 9px 6px; border-radius: 8px; font-size: 11.5px; font-weight: 700; letter-spacing: .02em; color: var(--dim-2); background: var(--bg); border: 1px solid var(--border); transition: all .25s ease; }
+  .phase .num { display: inline-block; width: 16px; height: 16px; line-height: 16px; border-radius: 50%; background: var(--border); color: var(--dim); font-size: 10px; margin-right: 5px; }
+  .phase.active { color: var(--accent); border-color: var(--accent); background: rgba(91,140,255,.1); }
+  .phase.active .num { background: var(--accent); color: white; }
+  .phase.done { color: var(--good); border-color: var(--good); background: rgba(46,204,113,.07); }
+  .phase.done .num { background: var(--good); color: #06210f; }
+  .log { flex: 1; min-height: 0; }
+
+  .evidence-link { cursor: zoom-in; }
 </style>
 </head>
 <body>
@@ -236,7 +249,15 @@
       <a class="run" href="/evidence/REPORT.md" download="release-regression-report.md"><span>⬇</span> Download (.md)</a>
     </div>
   </div>
-  <div class="log" id="log"></div>
+  <div class="main">
+    <div class="phase-tracker" id="phaseTracker">
+      <div class="phase" data-phase="diff"><span class="num">1</span>Diff</div>
+      <div class="phase" data-phase="journeys"><span class="num">2</span>Journeys</div>
+      <div class="phase" data-phase="report"><span class="num">3</span>Report</div>
+      <div class="phase" data-phase="approval"><span class="num">4</span>Approval</div>
+    </div>
+    <div class="log" id="log"></div>
+  </div>
 </div>
 
 <script>
@@ -253,9 +274,11 @@ const logEl = document.getElementById('log');
 let oldFile = null, newFile = null;
 let liveMode = false;
 
+const TITLE_ICON = { running: '⏳', done: '✅', error: '⚠️' };
 function setStatus(text, mode) {
   statusEl.textContent = text;
   statusPill.className = 'status-pill' + (mode ? ' ' + mode : '');
+  document.title = `${TITLE_ICON[mode] || '🤖'} ${text} — Release Agent`;
 }
 
 function wireDrop(dropEl, input, onFile) {
@@ -294,9 +317,44 @@ function renderMaybeEvidence(text) {
   const m = text.match(/saved (\/[^\s]+\.png)/);
   if (m) {
     const filename = m[1].split('/').pop();
-    return `<pre>${escapeHtml(text)}</pre><img class="evidence" src="/evidence/${filename}" />`;
+    const src = `/evidence/${filename}`;
+    return `<pre>${escapeHtml(text)}</pre><a class="evidence-link" href="${src}" target="_blank"><img class="evidence" src="${src}" /></a>`;
   }
   return `<pre>${escapeHtml(text)}</pre>`;
+}
+
+// Phase tracker: maps a real tool name (already unwrapped from TrueForge's
+// call_tool envelope if needed) to a phase, and marks earlier phases done.
+const PHASE_ORDER = ['diff', 'journeys', 'report', 'approval'];
+const PHASE_FOR_TOOL = {
+  diff_apks: 'diff',
+  adb_install: 'journeys', adb_force_stop: 'journeys', adb_launch: 'journeys',
+  adb_tap: 'journeys', adb_dump_ui: 'journeys', adb_screenshot: 'journeys',
+  adb_logcat_clear: 'journeys', adb_logcat_dump: 'journeys',
+  write_report: 'report',
+  request_release_approval: 'approval',
+};
+let currentPhaseIndex = -1;
+function setPhase(phaseName) {
+  const idx = PHASE_ORDER.indexOf(phaseName);
+  if (idx < 0 || idx <= currentPhaseIndex) return;
+  currentPhaseIndex = idx;
+  document.querySelectorAll('.phase').forEach((el, i) => {
+    el.classList.toggle('done', i < idx);
+    el.classList.toggle('active', i === idx);
+  });
+}
+function resetPhases() {
+  currentPhaseIndex = -1;
+  document.querySelectorAll('.phase').forEach((el) => el.classList.remove('done', 'active'));
+}
+
+function realToolNameAndArgs(name, args) {
+  // TrueForge sometimes wraps our actual tools behind a generic call_tool(mcp_server, tool_name, input).
+  if (name === 'call_tool' && args && args.tool_name) {
+    return { name: args.tool_name, args: args.input || {} };
+  }
+  return { name, args };
 }
 
 // tool_call_id -> {name, arguments}
@@ -332,10 +390,12 @@ function handleEvent(ev) {
       addEntry('agent', 'Reasoning', '🧠', `<pre>${escapeHtml(ev.content)}</pre>`);
     }
     for (const tc of ev.tool_calls || []) {
-      let args = {};
-      try { args = JSON.parse(tc.function.arguments || '{}'); } catch {}
-      pendingCalls[tc.id] = { name: tc.function.name, arguments: args };
-      addEntry('tool-call', null, null, `→ <span class="tool-name">${tc.function.name}</span>(${escapeHtml(JSON.stringify(args))})`);
+      let rawArgs = {};
+      try { rawArgs = JSON.parse(tc.function.arguments || '{}'); } catch {}
+      const { name: realName, args } = realToolNameAndArgs(tc.function.name, rawArgs);
+      pendingCalls[tc.id] = { name: realName, arguments: args };
+      if (PHASE_FOR_TOOL[realName]) setPhase(PHASE_FOR_TOOL[realName]);
+      addEntry('tool-call', null, null, `→ <span class="tool-name">${realName}</span>(${escapeHtml(JSON.stringify(args))})`);
     }
   } else if (ev.type === 'tool.response') {
     addEntry('tool-response', 'Result', '✓', renderMaybeEvidence(ev.content));
@@ -366,6 +426,9 @@ function handleEvent(ev) {
   } else if (ev.type === 'turn.done') {
     const status = ev.state && ev.state.status;
     addEntry('done', null, null, `— turn ${status} —`);
+    if (status === 'done' && currentPhaseIndex === PHASE_ORDER.indexOf('approval')) {
+      document.querySelectorAll('.phase').forEach((el) => el.classList.add('done'));
+    }
     if (status !== 'running') {
       setStatus('Idle. Waiting for the next turn.', 'done');
       showReportLink();
@@ -396,6 +459,7 @@ async function decide(thread_id, tool_call_id, status) {
 async function doUpload() {
   setStatus('Uploading APKs…', 'running');
   logEl.innerHTML = '';
+  resetPhases();
   const fd = new FormData();
   fd.append('old_apk', oldFile);
   fd.append('new_apk', newFile);
